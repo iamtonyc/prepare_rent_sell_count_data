@@ -1,0 +1,1 @@
+python prepare_rent_sell_count_data.py

@@ -1,0 +1,1 @@
+python3 /home/iamtonycheung/rent_sell_count_proj/prepare_rent_sell_count_data/prepare_rent_sell_count_data.py

@@ -1,0 +1,4 @@
+# this server is UTC time zone, 8 hour later than HK. so reduce the hour by 8
+30 12 * * *  sudo -u iamtonycheung /home/iamtonycheung/rent_sell_count_proj/prepare_rent_sell_count_data/prepare_rent_sell_count_data.sh >> /home/iamtonycheung/rent_sell_count_proj/prepare_rent_sell_count_data/prepare_rent_sell_count_data.log 2>&1
+00 13 * * FRI sudo -u iamtonycheung /home/iamtonycheung/ccl_proj/prepare_ccl_data/prepare_ccl_data.sh >> /home/iamtonycheung/ccl_proj/prepare_ccl_data/prepare_ccl_data.log 2>&1
+00 14 * * FRI systemctl restart django.service
