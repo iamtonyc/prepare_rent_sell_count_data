@@ -10,10 +10,15 @@ import gspread
 from oauth2client.service_account import ServiceAccountCredentials
 from googleapiclient.errors import HttpError
 
+# Set the script directory and log file path
+script_dir = os.path.abspath(os.path.join(__file__, os.pardir))
+log_path = os.path.join(script_dir, 'rent_sell_count.log')
+
+# Configure logging with the updated path
 logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s - %(levelname)s - %(message)s',
-    filename='rent_sell_count.log'
+    filename=log_path
 )
 logger = logging.getLogger(__name__)
 
@@ -92,7 +97,8 @@ def main() -> str:
             wan_chai_sell_data = get_rent_sell_count(playwright, 'WAN_CHAI_SELL')
 
             str_sheet_id = '1A69Ajirbxz3iuon4hahjEFA-fu63QYU_LJMhYk0WfYo'
-            token_file_name = os.path.join(os.getcwd(), 'token.json')
+            # Set token file path to script's directory instead of current working directory
+            token_file_name = os.path.join(script_dir, 'token.json')
 
             if not os.path.exists(token_file_name):
                 raise FileNotFoundError(f"Token file not found at {token_file_name}")
